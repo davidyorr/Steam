@@ -128,6 +128,12 @@ public class MainActivity extends Activity {
         getActionBar().setTitle(mTitle);
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
     public static class PlaceFragment extends Fragment {
         public static final String ARG_PLACE_NUMER = "place_number";
 
