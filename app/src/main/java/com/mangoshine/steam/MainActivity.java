@@ -1,21 +1,17 @@
 package com.mangoshine.steam;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 
 public class MainActivity extends Activity {
     private DrawerLayout mDrawerLayout;
@@ -50,7 +46,7 @@ public class MainActivity extends Activity {
                 R.drawable.ic_drawer,
                 R.string.drawer_open,
                 R.string.drawer_close
-                ) {
+        ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
@@ -109,13 +105,24 @@ public class MainActivity extends Activity {
     }
 
     private void selectItem(int position) {
-        Fragment fragment = new PlaceFragment();
+        AbstractBaseFragment fragment = null;
         Bundle args = new Bundle();
-        args.putInt(PlaceFragment.ARG_PLACE_NUMER, position);
+
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new MarketFragment();
+                break;
+            default:
+                break;
+        }
+        args.putInt(AbstractBaseFragment.ARG_PLACE_NUMER, position);
         fragment.setArguments(args);
 
-//        FragmentManager fragmentManager = getFragmentManager();
-//        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         mDrawerList.setItemChecked(position, true);
         setTitle(mPlaceTitles[position]);
@@ -132,21 +139,5 @@ public class MainActivity extends Activity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
-    }
-
-    public static class PlaceFragment extends Fragment {
-        public static final String ARG_PLACE_NUMER = "place_number";
-
-        public PlaceFragment() { }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_place, container, false);
-            int i = getArguments().getInt(ARG_PLACE_NUMER);
-            String place = getResources().getStringArray(R.array.places_array)[i];
-
-            getActivity().setTitle(place);
-            return rootView;
-        }
     }
 }
