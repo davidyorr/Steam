@@ -1,4 +1,5 @@
 <resources>
     <color name="gray">#262626</color>
     <color name="lightblue">#03a9f4</color>
+    <color name="divider">#545454</color>
 </resources>
