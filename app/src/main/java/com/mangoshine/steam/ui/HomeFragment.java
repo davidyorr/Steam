@@ -1,4 +1,6 @@
-package com.mangoshine.steam;
+package com.mangoshine.steam.ui;
+
+import com.mangoshine.steam.R;
 
 public class HomeFragment extends AbstractBaseFragment {
     public HomeFragment() {

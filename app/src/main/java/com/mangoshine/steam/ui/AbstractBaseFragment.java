@@ -1,10 +1,12 @@
-package com.mangoshine.steam;
+package com.mangoshine.steam.ui;
 
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.mangoshine.steam.R;
 
 public class AbstractBaseFragment extends Fragment {
     public static final String ARG_PLACE_NUMER = "place_number";

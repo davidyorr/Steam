@@ -13,6 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.mangoshine.steam.ui.AbstractBaseFragment;
+import com.mangoshine.steam.ui.HomeFragment;
+import com.mangoshine.steam.ui.MarketFragment;
+
 public class MainActivity extends Activity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
