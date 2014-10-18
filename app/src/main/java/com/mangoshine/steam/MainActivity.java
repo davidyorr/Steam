@@ -1,6 +1,7 @@
 package com.mangoshine.steam;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -109,7 +110,7 @@ public class MainActivity extends Activity {
     }
 
     private void selectItem(int position) {
-        AbstractBaseFragment fragment = null;
+        Fragment fragment = null;
         Bundle args = new Bundle();
 
         switch (position) {
