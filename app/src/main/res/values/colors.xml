@@ -1,5 +1,7 @@
 <resources>
     <color name="gray">#262626</color>
-    <color name="lightblue">#03a9f4</color>
+    <color name="primary">#03a9f4</color>
+    <color name="primaryDark">#006dcc</color>
+    <color name="accent">#9099a1</color>
     <color name="divider">#545454</color>
 </resources>

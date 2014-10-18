@@ -10,6 +10,6 @@
               android:layout_height="fill_parent"
               android:gravity="center"
               android:text="Home Fragment"
-              android:textColor="@color/lightblue"
+              android:textColor="@color/primary"
               android:textSize="32sp"/>
 </LinearLayout>

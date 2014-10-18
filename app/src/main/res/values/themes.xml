@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- base theme -->
+    <style name="SteamAppTheme.Base"
+           parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
     <!-- the theme applied to the application or activity -->
-    <style name="SteamActionBarTheme"
-        parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/SteamActionBar</item>
+    <style name="SteamAppTheme"
+           parent="SteamAppTheme.Base">
     </style>
 
     <!-- ActionBar styles -->
-    <style name="SteamActionBar"
-        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/lightblue</item>
-    </style>
+    <!--<style name="SteamActionBar"-->
+        <!--parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">-->
+        <!--<item name="android:background">@color/lightblue</item>-->
+    <!--</style>-->
 </resources>
