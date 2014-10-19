@@ -3,5 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="market_listing_padding_left">10dp</dimen>
+    <dimen name="market_listing_padding_left">8dp</dimen>
 </resources>

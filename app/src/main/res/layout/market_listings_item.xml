@@ -10,23 +10,26 @@
         <TextView
             android:id="@+id/market_listing_name"
             android:layout_width="0dip"
-            android:layout_weight=".64"
+            android:layout_weight=".68"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/market_listing_padding_left"
             android:gravity="center_vertical"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-thin"/>
         <TextView
             android:id="@+id/market_listing_quantity"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_width="0dip"
-            android:layout_weight=".18"
-            android:textColor="@android:color/white"/>
+            android:layout_weight=".16"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-thin"/>
         <TextView
             android:id="@+id/market_listing_price"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_width="0dip"
-            android:layout_weight=".18"
-            android:textColor="@android:color/white"/>
+            android:layout_weight=".16"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-thin"/>
 </LinearLayout>
