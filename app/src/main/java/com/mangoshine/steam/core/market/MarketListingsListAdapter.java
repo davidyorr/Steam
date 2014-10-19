@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mangoshine.steam.R;
+import com.mangoshine.steam.util.CurrencyUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class MarketListingsListAdapter extends BaseAdapter {
         textView.setText(marketListing.getQuantity().toString());
 
         textView = (TextView) marketListingsLayout.findViewById(R.id.market_listing_price);
-        textView.setText(marketListing.getPrice().toString());
+        textView.setText(CurrencyUtils.parseCentsToDollars(marketListing.getPrice()));
 
         return marketListingsLayout;
     }
