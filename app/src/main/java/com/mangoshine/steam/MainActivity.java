@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -77,17 +78,30 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+
+        menu.clear();
+        MenuInflater menuInflater = getMenuInflater();
+
+        switch (mDrawerList.getCheckedItemPosition()) {
+            case 0:
+                menuInflater.inflate(R.menu.main, menu);
+                break;
+            case 1:
+                menuInflater.inflate(R.menu.market_games, menu);
+                break;
+            default:
+                menuInflater.inflate(R.menu.main, menu);
+                break;
+        }
+
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -105,6 +119,32 @@ public class MainActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        switch (id) {
+            // Market Games
+            case R.id.action_market_popular:
+                break;
+            case R.id.action_market_all:
+                break;
+            case R.id.action_market_battleblock_theater:
+                break;
+            case R.id.action_market_csgo:
+                break;
+            case R.id.action_market_dota_2:
+                break;
+            case R.id.action_market_path_of_exile:
+                break;
+            case R.id.action_market_sins_of_a_dark_age:
+                break;
+            case R.id.action_market_steam:
+                break;
+            case R.id.action_market_tf2:
+                break;
+            case R.id.action_market_warframe:
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);

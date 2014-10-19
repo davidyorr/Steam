@@ -9,6 +9,18 @@
         <item>Market</item>
     </string-array>
 
+    <!-- Market games -->
+    <string name="games_popular">Popular</string>
+    <string name="games_all">All</string>
+    <string name="games_battleblock_theater">BattleBlock Theater</string>
+    <string name="games_csgo">CS: GO</string>
+    <string name="games_dota_2">Dota 2</string>
+    <string name="games_path_of_exile">Path of Exile</string>
+    <string name="games_sins_of_a_dark_age">Sins of a Dark Age</string>
+    <string name="games_steam">Steam</string>
+    <string name="games_tf2">Team Fortress 2</string>
+    <string name="games_warframe">Warframe</string>
+
     <!-- Accessibility -->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
