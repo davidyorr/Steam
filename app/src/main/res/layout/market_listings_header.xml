@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="45dp"
         android:orientation="horizontal"
-        android:background="@color/gray">
+        android:layout_alignParentTop="true"
+        android:background="@color/headerBg">
 
         <TextView
-            android:id="@+id/market_listing_name"
             android:layout_width="0dip"
             android:layout_weight=".64"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/market_listing_padding_left"
             android:gravity="center_vertical"
+            android:text="@string/market_listings_header_name"
             android:textColor="@android:color/white"/>
         <TextView
-            android:id="@+id/market_listing_quantity"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_width="0dip"
             android:layout_weight=".18"
+            android:gravity="center"
+            android:text="@string/market_listings_header_quantity"
             android:textColor="@android:color/white"/>
         <TextView
-            android:id="@+id/market_listing_price"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_width="0dip"
             android:layout_weight=".18"
+            android:gravity="center"
+            android:text="@string/market_listings_header_price"
             android:textColor="@android:color/white"/>
 </LinearLayout>

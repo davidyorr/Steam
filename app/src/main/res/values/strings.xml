@@ -9,6 +9,11 @@
         <item>Market</item>
     </string-array>
 
+    <!-- Market Listings Header Row -->
+    <string name="market_listings_header_name">Name</string>
+    <string name="market_listings_header_quantity">Quantity</string>
+    <string name="market_listings_header_price">Price</string>
+
     <!-- Market games -->
     <string name="games_popular">Popular</string>
     <string name="games_all">All</string>

@@ -18,8 +18,13 @@ public class MarketFragment extends AbstractBaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        ListView listView = (ListView) inflater.inflate(R.layout.market_listings_scrollable_list, (ViewGroup) view, false);
+        View marketListingsHeader = inflater.inflate(R.layout.market_listings_header, (ViewGroup) view, false);
         MarketListingsListAdapter adapter = new MarketListingsListAdapter(getActivity());
-        ((ListView) view).setAdapter(adapter);
+        listView.setAdapter(adapter);
+
+        ((ViewGroup) view).addView(marketListingsHeader);
+        ((ViewGroup) view).addView(listView);
 
         MarketClient marketClient = new MarketClient();
         marketClient.getPopularListings(adapter);
