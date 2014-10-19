@@ -1,8 +1,10 @@
 <resources>
+    <color name="steam_green">#8db206</color>
+    <color name="steam_blue">#03a9f4</color>
     <color name="gray">#262626</color>
-    <color name="primary">#03a9f4</color>
+    <color name="primary">@color/steam_blue</color>
     <color name="primaryDark">#006dcc</color>
     <color name="accent">#9099a1</color>
     <color name="divider">#545454</color>
-    <color name="headerBg">#006DCC</color>
+    <color name="headerBg">#4a5868</color>
 </resources>
