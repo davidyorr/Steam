@@ -15,7 +15,8 @@
             android:paddingLeft="@dimen/market_listing_padding_left"
             android:gravity="center_vertical"
             android:textColor="@android:color/white"
-            android:fontFamily="sans-serif-thin"/>
+            android:textSize="@dimen/market_listing_font_size"
+            android:fontFamily="@string/market_listings_font_face"/>
         <TextView
             android:id="@+id/market_listing_quantity"
             android:layout_height="match_parent"
@@ -23,7 +24,8 @@
             android:layout_width="0dip"
             android:layout_weight=".16"
             android:textColor="@android:color/white"
-            android:fontFamily="sans-serif-thin"/>
+            android:textSize="@dimen/market_listing_font_size"
+            android:fontFamily="@string/market_listings_font_face"/>
         <TextView
             android:id="@+id/market_listing_price"
             android:layout_height="match_parent"
@@ -31,5 +33,6 @@
             android:layout_width="0dip"
             android:layout_weight=".16"
             android:textColor="@android:color/white"
-            android:fontFamily="sans-serif-thin"/>
+            android:textSize="@dimen/market_listing_font_size"
+            android:fontFamily="@string/market_listings_font_face"/>
 </LinearLayout>

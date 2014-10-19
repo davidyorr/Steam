@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="market_listing_padding_left">8dp</dimen>
+    <dimen name="market_listing_font_size">13sp</dimen>
 </resources>
