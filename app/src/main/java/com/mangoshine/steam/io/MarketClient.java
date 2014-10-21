@@ -1,6 +1,7 @@
 package com.mangoshine.steam.io;
 
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 
 import com.mangoshine.steam.core.market.MarketListingsListAdapter;
@@ -19,9 +20,9 @@ public class MarketClient {
 
     }
 
-    public void getPopularListings(MarketListingsListAdapter adapter) {
+    public void refreshPopularListings(MarketListingsListAdapter adapter, SwipeRefreshLayout swipeRefreshLayout) {
         try {
-            new FetchFeedTask(adapter).execute("http://steamcommunity.com/market/popular?country=US&language=english&currency=1&count=10");
+            new FetchFeedTask(adapter, swipeRefreshLayout).execute("http://steamcommunity.com/market/popular?country=US&language=english&currency=1&count=10");
         } catch (Exception e) {
             Log.e("MarketClient", e.getMessage());
         }
@@ -29,9 +30,11 @@ public class MarketClient {
 
     private class FetchFeedTask extends AsyncTask<String, Void, String> {
         private final MarketListingsListAdapter mMarketListingsListAdapter;
+        private final SwipeRefreshLayout mSwipeRefreshLayout;
 
-        public FetchFeedTask(MarketListingsListAdapter marketListingsListAdapter) {
+        public FetchFeedTask(MarketListingsListAdapter marketListingsListAdapter, SwipeRefreshLayout swipeRefreshLayout) {
             mMarketListingsListAdapter = marketListingsListAdapter;
+            mSwipeRefreshLayout = swipeRefreshLayout;
         }
 
         protected String doInBackground(String... urls) {
@@ -46,6 +49,7 @@ public class MarketClient {
 
         protected void onPostExecute(String response) {
             mMarketListingsListAdapter.updateListings(MarketUtils.responseStringToList(response));
+            mSwipeRefreshLayout.setRefreshing(false);
         }
     }
 }

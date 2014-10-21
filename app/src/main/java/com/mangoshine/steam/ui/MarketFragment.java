@@ -1,6 +1,7 @@
 package com.mangoshine.steam.ui;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,11 @@ import com.mangoshine.steam.R;
 import com.mangoshine.steam.core.market.MarketListingsListAdapter;
 import com.mangoshine.steam.io.MarketClient;
 
-public class MarketFragment extends AbstractBaseFragment {
+public class MarketFragment extends AbstractBaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    MarketClient mMarketClient;
+    MarketListingsListAdapter mAdapter;
+
     public MarketFragment() {
         mLayout = R.layout.fragment_market;
     }
@@ -18,17 +23,26 @@ public class MarketFragment extends AbstractBaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        ListView listView = (ListView) inflater.inflate(R.layout.market_listings_scrollable_list, (ViewGroup) view, false);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) inflater.inflate(R.layout.market_listings_scrollable_list, (ViewGroup) view, false);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
+        ListView listView = (ListView) mSwipeRefreshLayout.findViewById(R.id.market_listings_scrollable_list);
         View marketListingsHeader = inflater.inflate(R.layout.market_listings_header, (ViewGroup) view, false);
-        MarketListingsListAdapter adapter = new MarketListingsListAdapter(getActivity());
-        listView.setAdapter(adapter);
+        mAdapter = new MarketListingsListAdapter(getActivity());
+        listView.setAdapter(mAdapter);
 
         ((ViewGroup) view).addView(marketListingsHeader);
-        ((ViewGroup) view).addView(listView);
+        ((ViewGroup) view).addView(mSwipeRefreshLayout);
 
-        MarketClient marketClient = new MarketClient();
-        marketClient.getPopularListings(adapter);
+        mMarketClient = new MarketClient();
+        mMarketClient.refreshPopularListings(mAdapter, mSwipeRefreshLayout);
 
         return view;
+    }
+
+    @Override
+    public void onRefresh() {
+        mMarketClient.refreshPopularListings(mAdapter, mSwipeRefreshLayout);
     }
 }
