@@ -7,12 +7,17 @@
         android:orientation="horizontal"
         android:background="@color/gray">
 
+        <ImageView
+            android:id="@+id/market_listing_img"
+            android:layout_width="0dip"
+            android:layout_weight=".14"
+            android:layout_height="match_parent"
+            android:padding="@dimen/market_listing_padding_left"/>
         <TextView
             android:id="@+id/market_listing_name"
             android:layout_width="0dip"
-            android:layout_weight=".68"
+            android:layout_weight=".54"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/market_listing_padding_left"
             android:gravity="center_vertical"
             android:textColor="@android:color/white"
             android:textSize="@dimen/market_listing_font_size"

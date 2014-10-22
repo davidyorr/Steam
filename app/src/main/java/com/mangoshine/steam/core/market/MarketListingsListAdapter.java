@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mangoshine.steam.R;
+import com.mangoshine.steam.io.MarketClient;
 import com.mangoshine.steam.util.CurrencyUtils;
 
 import java.util.ArrayList;
@@ -60,6 +62,11 @@ public class MarketListingsListAdapter extends BaseAdapter {
 
         textView = (TextView) marketListingsLayout.findViewById(R.id.market_listing_price);
         textView.setText(CurrencyUtils.parseCentsToDollars(marketListing.getPrice()));
+
+        MarketClient marketClient = new MarketClient();
+        ImageView imageView = (ImageView) marketListingsLayout.findViewById(R.id.market_listing_img);
+        imageView.setImageBitmap(null);
+        marketClient.loadImg(imageView, marketListing.getImgURL());
 
         return marketListingsLayout;
     }

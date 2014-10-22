@@ -7,11 +7,13 @@ public class MarketListing {
     private String mName;
     private Integer mQuantity;
     private Integer mPrice;
+    private String mImgURL;
 
-    public MarketListing(String name, Integer quantity, Integer price) {
+    public MarketListing(String name, Integer quantity, Integer price, String imgURL) {
         mName = name;
         mQuantity = quantity;
         mPrice = price;
+        mImgURL = imgURL;
     }
 
     public String getName() {
@@ -36,5 +38,13 @@ public class MarketListing {
 
     public void setPrice(Integer price) {
         this.mPrice = price;
+    }
+
+    public String getImgURL() {
+        return mImgURL;
+    }
+
+    public void setImgURL(String imgURL) {
+        this.mImgURL = imgURL;
     }
 }
