@@ -2,7 +2,11 @@ package com.mangoshine.steam.ui;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -18,6 +22,12 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
 
     public MarketFragment() {
         mLayout = R.layout.fragment_market;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -42,7 +52,17 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.market_games, menu);
+    }
+
+    @Override
     public void onRefresh() {
         mMarketClient.refreshPopularListings(mAdapter, mSwipeRefreshLayout);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }

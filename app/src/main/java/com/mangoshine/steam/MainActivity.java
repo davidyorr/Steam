@@ -9,7 +9,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -81,28 +80,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-
-        menu.clear();
-        MenuInflater menuInflater = getMenuInflater();
-
-        switch (mDrawerList.getCheckedItemPosition()) {
-            case 0:
-                menuInflater.inflate(R.menu.main, menu);
-                break;
-            case 1:
-                menuInflater.inflate(R.menu.market_games, menu);
-                break;
-            default:
-                menuInflater.inflate(R.menu.main, menu);
-                break;
-        }
-
-        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
