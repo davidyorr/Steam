@@ -2,7 +2,6 @@ package com.mangoshine.steam.ui;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +19,10 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
     MarketClient mMarketClient;
     MarketListingsListAdapter mAdapter;
 
+    String[] mMarketGames;
+
+    private final int MENU_GROUP_ID = 0;
+
     public MarketFragment() {
         mLayout = R.layout.fragment_market;
     }
@@ -28,6 +31,8 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        mMarketGames = getResources().getStringArray(R.array.market_games);
     }
 
     @Override
@@ -53,9 +58,8 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        String[] marketGames = getResources().getStringArray(R.array.market_games);
-        for (String game : marketGames) {
-            menu.add(game);
+        for (int i = 0; i < mMarketGames.length; i++) {
+            menu.add(MENU_GROUP_ID, i, Menu.NONE, mMarketGames[i]);
         }
     }
 
@@ -66,6 +70,20 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        // popular
+        if (id == 0) {
+            mMarketClient.refreshPopularListings(mAdapter, mSwipeRefreshLayout);
+        }
+        // all
+        else if (id == 1) {
+
+        }
+        // individual games
+        else {
+            mMarketClient.refreshGameListings(mAdapter, mSwipeRefreshLayout, item.getItemId());
+        }
         return super.onOptionsItemSelected(item);
     }
 }

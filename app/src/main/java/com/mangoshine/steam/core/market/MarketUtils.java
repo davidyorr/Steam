@@ -21,24 +21,29 @@ public class MarketUtils {
         List<MarketListing> marketListings = new ArrayList<MarketListing>();
         try {
             JSONObject responseJSON = new JSONObject(response);
-            JSONArray listings = responseJSON.getJSONArray("data");
-            JSONArray resultsHTML = responseJSON.getJSONArray("results_html");
-            DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc;
-            Node imgNode;
-            JSONObject listing;
-            for (int i = 0; i < listings.length(); i++) {
-                listing = listings.getJSONObject(i);
-                doc = db.parse(IOUtils.toInputStream(resultsHTML.getString(i)));
-                imgNode = doc.getElementsByTagName("img").item(0);
-                marketListings.add(
-                        new MarketListing(
-                                listing.getString("name"),
-                                listing.getInt("sell_listings"),
-                                listing.getInt("sell_price"),
-                                ((Element) imgNode).getAttribute("src").toString()
-                        )
-                );
+            // the individual game json response's don't have 'data' as a key
+            if (responseJSON.has("data")) {
+                JSONArray listings = responseJSON.getJSONArray("data");
+                JSONArray resultsHTML = responseJSON.getJSONArray("results_html");
+                DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+                Document doc;
+                Node imgNode;
+                JSONObject listing;
+                for (int i = 0; i < listings.length(); i++) {
+                    listing = listings.getJSONObject(i);
+                    doc = db.parse(IOUtils.toInputStream(resultsHTML.getString(i)));
+                    imgNode = doc.getElementsByTagName("img").item(0);
+                    marketListings.add(
+                            new MarketListing(
+                                    listing.getString("name"),
+                                    listing.getInt("sell_listings"),
+                                    listing.getInt("sell_price"),
+                                    ((Element) imgNode).getAttribute("src").toString()
+                            )
+                    );
+                }
+            } else {
+
             }
         } catch (Exception e) {
 

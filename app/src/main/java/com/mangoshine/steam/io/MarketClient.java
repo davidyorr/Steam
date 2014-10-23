@@ -40,6 +40,14 @@ public class MarketClient {
         }
     }
 
+    public void refreshGameListings(MarketListingsListAdapter adapter, SwipeRefreshLayout swipeRefreshLayout, int gameID) {
+        try {
+            new FetchFeedTask(adapter, swipeRefreshLayout).execute("http://steamcommunity.com/market/search/render?appid=" + gameID);
+        } catch (Exception e) {
+            Log.e("MarketClient", e.getMessage());
+        }
+    }
+
     private class FetchFeedTask extends AsyncTask<String, Void, String> {
         private final MarketListingsListAdapter mMarketListingsListAdapter;
         private final SwipeRefreshLayout mSwipeRefreshLayout;
