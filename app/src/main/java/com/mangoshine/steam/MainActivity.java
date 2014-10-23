@@ -98,32 +98,6 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
-        switch (id) {
-            // Market Games
-            case R.id.action_market_popular:
-                break;
-            case R.id.action_market_all:
-                break;
-            case R.id.action_market_battleblock_theater:
-                break;
-            case R.id.action_market_csgo:
-                break;
-            case R.id.action_market_dota_2:
-                break;
-            case R.id.action_market_path_of_exile:
-                break;
-            case R.id.action_market_sins_of_a_dark_age:
-                break;
-            case R.id.action_market_steam:
-                break;
-            case R.id.action_market_tf2:
-                break;
-            case R.id.action_market_warframe:
-                break;
-            default:
-                break;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

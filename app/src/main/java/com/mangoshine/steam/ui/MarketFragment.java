@@ -53,7 +53,10 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        menuInflater.inflate(R.menu.market_games, menu);
+        String[] marketGames = getResources().getStringArray(R.array.market_games);
+        for (String game : marketGames) {
+            menu.add(game);
+        }
     }
 
     @Override
