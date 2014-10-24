@@ -61,12 +61,10 @@ public class MainActivity extends ActionBarActivity {
                 R.string.drawer_close
         ) {
             public void onDrawerClosed(View view) {
-                setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -129,14 +127,7 @@ public class MainActivity extends ActionBarActivity {
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         mDrawerList.setItemChecked(position, true);
-        setTitle(mPlaceTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
-    }
-
-    @Override
-    public void setTitle(CharSequence title) {
-        mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
     }
 
     @Override

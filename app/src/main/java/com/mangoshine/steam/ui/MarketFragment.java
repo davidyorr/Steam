@@ -2,6 +2,7 @@ package com.mangoshine.steam.ui;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -53,6 +54,8 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
         mMarketClient = new MarketClient();
         mMarketClient.refreshPopularListings(mAdapter, mSwipeRefreshLayout);
 
+        setTitle(mMarketGames[0]);
+
         return view;
     }
 
@@ -71,6 +74,9 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+//        ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(mMarketGames[id]);
+        setTitle(mMarketGames[id]);
 
         // popular
         if (id == 0) {
