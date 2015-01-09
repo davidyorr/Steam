@@ -39,16 +39,12 @@ public class MarketFragment extends AbstractBaseFragment implements SwipeRefresh
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) inflater.inflate(R.layout.market_listings_scrollable_list, (ViewGroup) view, false);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.market_swipe_container);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
-        ListView listView = (ListView) mSwipeRefreshLayout.findViewById(R.id.market_listings_scrollable_list);
-        View marketListingsHeader = inflater.inflate(R.layout.market_listings_header, (ViewGroup) view, false);
+        ListView listView = (ListView) view.findViewById(R.id.market_listings_scrollable_list);
         mAdapter = new MarketListingsListAdapter(getActivity());
         listView.setAdapter(mAdapter);
-
-        ((ViewGroup) view).addView(marketListingsHeader);
-        ((ViewGroup) view).addView(mSwipeRefreshLayout);
 
         mMarketClient = new MarketClient();
         mMarketClient.refreshPopularListings(mAdapter, mSwipeRefreshLayout);
