@@ -6,7 +6,7 @@
         android:layout_height="45dp"
         android:orientation="horizontal"
         android:layout_alignParentTop="true"
-        android:background="@color/headerBg">
+        android:background="@color/primary">
 
         <TextView
             android:layout_width="0dip"
