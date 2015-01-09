@@ -1,12 +1,9 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo">
-        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
-    </style>
-
-    <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.ActionBar">
-        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+    <style name="MyTheme.ActionBarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/steam_blue</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
     <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">

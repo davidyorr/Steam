@@ -5,4 +5,6 @@
 
     <dimen name="market_listing_padding_left">8dp</dimen>
     <dimen name="market_listing_font_size">13sp</dimen>
+
+    <dimen name="navigation_drawer_width">240dp</dimen>
 </resources>
