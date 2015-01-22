@@ -8,7 +8,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +23,6 @@ public class MainActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
-    private Toolbar mToolbar;
 
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -35,10 +33,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
-
         mTitle = mDrawerTitle = getTitle();
         mPlaceTitles = getResources().getStringArray(R.array.places_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -46,22 +40,13 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary));
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+        mDrawerList.setAdapter(new ArrayAdapter<>(this,
                 R.layout.drawer_list_item, mPlaceTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 mDrawerLayout,
-                mToolbar,
-                R.string.drawer_open,
-                R.string.drawer_close
-        );
-
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                mToolbar,
                 R.string.drawer_open,
                 R.string.drawer_close
         ) {
@@ -78,8 +63,6 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
         mDrawerToggle.syncState();
 
         if (savedInstanceState == null) {
@@ -145,6 +128,10 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    public void sync() {
         mDrawerToggle.syncState();
     }
 }

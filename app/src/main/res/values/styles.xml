@@ -2,8 +2,8 @@
 
     <style name="MyTheme.ActionBarStyle" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">@color/steam_blue</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="popupTheme">@style/Theme.AppCompat.Light</item>
+        <item name="theme">@style/Theme.AppCompat</item>
     </style>
 
     <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">

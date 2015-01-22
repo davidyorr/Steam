@@ -5,7 +5,7 @@
     android:id="@+id/market_swipe_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ListView
+    <com.github.ksoichiro.android.observablescrollview.ObservableListView
         android:id="@+id/market_listings_scrollable_list"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -13,5 +13,5 @@
         android:divider="@color/divider"
         android:dividerHeight="1dp"
         android:background="@color/gray">
-    </ListView>
+    </com.github.ksoichiro.android.observablescrollview.ObservableListView>
 </android.support.v4.widget.SwipeRefreshLayout>

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/market_fragment_container"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <include layout="@layout/market_listings_header"/>
     <include layout="@layout/market_listings_scrollable_list"/>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar"/>
+        <include layout="@layout/market_listings_header"/>
+    </LinearLayout>
+</FrameLayout>

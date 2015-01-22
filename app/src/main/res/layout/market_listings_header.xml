@@ -2,8 +2,9 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/market_listings_header"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="@dimen/market_listing_header_height"
         android:orientation="horizontal"
         android:layout_alignParentTop="true"
         android:background="@color/primary">
