@@ -1,8 +1,8 @@
 package com.mangoshine.steam;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.mangoshine.steam.ui.AbstractBaseFragment;
+import com.mangoshine.steam.ui.CatalogFragment;
 import com.mangoshine.steam.ui.HomeFragment;
 import com.mangoshine.steam.ui.MarketFragment;
 
@@ -107,7 +108,7 @@ public class MainActivity extends ActionBarActivity {
 
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new CatalogFragment();
                 break;
             case 1:
                 fragment = new MarketFragment();
@@ -118,7 +119,7 @@ public class MainActivity extends ActionBarActivity {
         args.putInt(AbstractBaseFragment.ARG_PLACE_NUMER, position);
         fragment.setArguments(args);
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
         mDrawerList.setItemChecked(position, true);
